@@ -1,7 +1,7 @@
 ---
 publish: true
 created: 2026-07-20T15:16:11.637Z
-modified: 2026-09-24T13:41:15.906Z
+modified: 2026-09-24T14:34:11.613Z
 ---
 
 In Deutschland unterliegt der Kormoran nicht dem Bundesjagdgesetz, sondern dem strengen Artenschutz. Daher gibt es keine bundeseinheitliche Jagdzeit. Der Abschuss zur Schadensabwehr an Gewässern ist jedoch in fast allen Bundesländern über spezielle Kormoranverordnungen oder artenschutzrechtliche Ausnahmegenehmigungen geregelt. Die Ausübung erfordert meist einen gültigen Jagdschein. \[[1](https://www.ovis.de/Jagdzeit-Kormoranjagd), [2](https://nrw.nabu.de/tiere-und-pflanzen/voegel/kormoran/04391.html), [3](https://www.bundestag.de/resource/blob/867494/6fb70f1a70f5a18ab1fde52dda9edcbb/WD-8-085-21-pdf-data.pdf), [4](https://www.youtube.com/watch?v=Lp1TWocpqfE), [5](https://kraehenjagd.eu/jagd-kormoran-mit-der-lockjagd/), [6](https://www.landkreis-mittelsachsen.de/fileadmin/Redakteure/Behoerden/1_Geschaeftskreis/Umwelt_Forst_Lawi/Naturschutz/mb-kormoranverordnung-ua.pdf)]
@@ -26,17 +26,11 @@ https://www.gesetze-bayern.de/Content/Document/BayAAV-1
 
 (2) Von der Gestattung ausgenommen sind
 
-1.
+1. befriedete Bezirke gemäß Art. 6 Abs. 1 und 2 des Bayerischen Jagdgesetzes,
 
-befriedete Bezirke gemäß Art. 6 Abs. 1 und 2 des Bayerischen Jagdgesetzes,
+2. Naturschutzgebiete nach § 23 BNatSchG sowie Nationalparke nach § 24 Abs. 1 bis 3 BNatSchG in Verbindung mit Art. 13 des Bayerischen Naturschutzgesetzes (BayNatSchG),
 
-2.
-
-Naturschutzgebiete nach § 23 BNatSchG sowie Nationalparke nach § 24 Abs. 1 bis 3 BNatSchG in Verbindung mit Art. 13 des Bayerischen Naturschutzgesetzes (BayNatSchG),
-
-3.
-
-Europäische Vogelschutzgebiete gemäß der Bayerischen Natura 2000-Verordnung.
+3. Europäische Vogelschutzgebiete gemäß der Bayerischen Natura 2000-Verordnung.
 
 (3) 1Der Abschuss ist nur zulässig in der Zeit vom 16. August bis 14. März. 2In Schonbezirken nach Art. 70 des Bayerischen Fischereigesetzes (BayFiG) sowie in geschlossenen Gewässern nach Art. 2 BayFiG ist der Abschuss vorbehaltlich besonderer Schutzvorschriften in der Zeit vom 16. August bis 31. März zulässig. 3Nicht zulässig ist der Abschuss von eineinhalb Stunden nach Sonnenuntergang bis eineinhalb Stunden vor Sonnenaufgang. 4§ 11 der Verordnung zur Ausführung des Bayerischen Jagdgesetzes (AVBayJG) gilt entsprechend.
 

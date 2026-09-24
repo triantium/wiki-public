@@ -1,16 +1,13 @@
 ---
 publish: true
 created: 2026-07-17T12:43:31.145Z
-modified: 2026-09-24T13:47:45.613Z
+modified: 2026-09-24T14:35:25.870Z
 ---
 
-```
 https://github.com/tadfisher/nyx-kb
-```
-
 https://splitkb.com/cart
 
-Costs:
+Kosten:
 
 | Parts | Vendor|Shipping Time| Cost|\
 |-----| ----| -----  |-----|

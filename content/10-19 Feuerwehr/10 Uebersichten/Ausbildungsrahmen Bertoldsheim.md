@@ -1,7 +1,7 @@
 ---
 publish: true
 created: 2026-07-17T12:43:29.482Z
-modified: 2026-09-24T13:44:47.205Z
+modified: 2026-09-24T14:14:38.033Z
 ---
 
 ## Rahmenbedingungen
@@ -34,9 +34,5 @@ Themenschwerpunkte:
 ## Neu einzuführen
 
 - Erste Hilfe und Erstretter
-
 - Hohlstrahlrohre und Schaummittel
-
--
-
-- [ ] Container BSA
+- Container BSA
