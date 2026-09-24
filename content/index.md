@@ -1,8 +1,7 @@
 ---
-title: Welcome
 publish: true
+created: 2026-09-24T13:28:02.578Z
+modified: 2026-09-24T13:28:28.440Z
 ---
 
-Welcome to your Quartz site! This is your home page.
-
-Edit this note in Obsidian, then publish it with Quartz Syncer.
+# Willkomen im Reich des begrenzten Wissens
