@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-07-17T12:43:29.481Z
-modified: 2026-09-24T13:41:36.054Z
+modified: 2026-09-28T10:59:13.391Z
+tags:
+  - feuerwehr
+  - ausbildung
+  - mta
 cssclasses:
   - unterschriftenliste
 ---

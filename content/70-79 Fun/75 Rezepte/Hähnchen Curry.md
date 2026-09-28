@@ -1,7 +1,10 @@
 ---
 publish: true
 created: 2026-07-21T13:00:30.629Z
-modified: 2026-09-24T13:50:33.841Z
+modified: 2026-09-28T11:03:18.019Z
+tags:
+  - rezept
+  - indisch
 ---
 
 **4 Servings**

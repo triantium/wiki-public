@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-07-17T12:43:29.483Z
-modified: 2026-09-24T14:33:41.344Z
+modified: 2026-09-28T10:59:13.393Z
+tags:
+  - feuerwehr
+  - vorbeugung
+  - brandschutz
 ---
 
 https://publikationen.dguv.de/regelwerk/dguv-informationen/2848/brandschutzhelfer

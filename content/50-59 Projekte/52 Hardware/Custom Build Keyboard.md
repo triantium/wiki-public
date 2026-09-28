@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-07-17T12:43:31.145Z
-modified: 2026-09-24T14:35:25.870Z
+modified: 2026-09-28T11:02:33.562Z
+tags:
+  - hardware
+  - tastatur
+  - basteln
 ---
 
 https://github.com/tadfisher/nyx-kb

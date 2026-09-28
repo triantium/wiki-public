@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-09-24T14:23:22.355Z
-modified: 2026-09-24T14:26:32.207Z
+modified: 2026-09-28T10:59:13.389Z
+tags:
+  - feuerwehr
+  - fahrzeuge
+  - wasser
 ---
 
 Ein Feuerwehr-Mehrzweckboot (MZB) nach **DIN 14961** ist ein ==vielseitiges Wasserfahrzeug für Rettungseinsätze, technische Hilfeleistungen und die Brandbekämpfung auf Flüssen, Seen und Kanälen==.

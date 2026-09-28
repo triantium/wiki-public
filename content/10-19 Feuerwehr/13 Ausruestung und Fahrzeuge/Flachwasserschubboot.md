@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-07-20T10:44:30.895Z
-modified: 2026-09-24T13:22:30.081Z
+modified: 2026-09-28T10:59:13.389Z
+tags:
+  - feuerwehr
+  - fahrzeuge
+  - wasser
 ---
 
 # Aus dem Werbeprospekt

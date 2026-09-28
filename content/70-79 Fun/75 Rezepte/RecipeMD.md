@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-07-21T12:59:57.265Z
-modified: 2026-09-24T13:50:49.885Z
+modified: 2026-09-28T11:03:18.019Z
+tags:
+  - software
+  - rezept
+  - markdown
 ---
 
 https://recipemd.org/index.html

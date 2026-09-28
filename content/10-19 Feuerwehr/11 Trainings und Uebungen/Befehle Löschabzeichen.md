@@ -1,7 +1,11 @@
 ---
 publish: true
 created: 2026-09-14T12:13:47.181Z
-modified: 2026-09-24T14:15:10.542Z
+modified: 2026-09-28T10:59:13.379Z
+tags:
+  - feuerwehr
+  - uebung
+  - leistungsabzeichen
 ---
 
 ## Vor der Abnahme
