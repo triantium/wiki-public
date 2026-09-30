@@ -1,7 +1,7 @@
 ---
 publish: true
 created: 2026-07-17T12:43:31.145Z
-modified: 2026-09-28T11:02:33.562Z
+modified: 2026-09-30T10:11:16.955Z
 tags:
   - hardware
   - tastatur
@@ -18,6 +18,8 @@ Kosten:
 | 10xPCB + Stencil| [JLCPCB](https://jlcpcb.com)|~2 weeks|Order Total: $59.00 |
 | Keys | splitkb.com|~2 weeks | Order Total: $200 |
 | Electronics | Digikeys|~2 weeks | Order Total: \$55 |
+
+- [x] Ergomechkeyboard bauen #todo 🆔 20260930-ea9f ✅ 2026-09-30
 
 Shopping cart
 
