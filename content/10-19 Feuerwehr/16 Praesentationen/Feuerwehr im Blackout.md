@@ -2,9 +2,14 @@
 publish: true
 created: 2026-07-17T12:43:29.476Z
 modified: 2026-09-24T13:36:07.540Z
+published: 2026-09-24T13:36:07.540Z
 tags:
   - presentation
   - feuerwehr
+sources:
+  - https://analytics.eu.umami.is/script.js
+  - https://www.bbk.bund.de/DE/Themen/Kritische-Infrastrukturen/KRITIS-Gefahrenlagen/Stromausfall/stromausfall_node.html
+  - https://ag.kritis.info/2022/12/08/kommunale-blackout-praevention/
 ---
 
 # Feuerwehr im Blackout

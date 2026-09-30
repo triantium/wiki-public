@@ -2,9 +2,13 @@
 publish: true
 created: 2026-09-03T13:11:48.419Z
 modified: 2026-09-28T11:00:04.293Z
+published: 2026-09-28T11:00:04.293Z
 tags:
   - wissen
   - methodik
+sources:
+  - https://software-architektur.tv/2022/11/04/auftragstaktik-agilitat-beim-militar-mit-sonke-marahrens.html
+  - https://de.wikipedia.org/wiki/F%C3%BChren_mit_Auftrag
 ---
 
 ![[30-39 Beruf/34 Wissen/assets/auftragstaktik-folge141.png]]

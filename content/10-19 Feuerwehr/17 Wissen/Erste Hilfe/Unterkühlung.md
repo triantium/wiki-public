@@ -2,9 +2,12 @@
 publish: true
 created: 2026-07-17T12:43:29.485Z
 modified: 2026-09-24T13:41:02.694Z
+published: 2026-09-24T13:41:02.694Z
 tags:
   - erkrankungen
   - feuerwehr
+sources:
+  - https://www.spektrum.de/news/sicher-helfen-wie-hilft-man-bei-unterkuehlung/2077209?utm_source=pocket-newtab-global-de-DE
 ---
 
 ## [Spektrum](https://www.spektrum.de/news/sicher-helfen-wie-hilft-man-bei-unterkuehlung/2077209?utm_source=pocket-newtab-global-)

@@ -2,11 +2,14 @@
 publish: true
 created: 2026-09-24T07:19:04.448Z
 modified: 2026-09-28T10:59:13.392Z
+published: 2026-09-28T10:59:13.392Z
 tags:
   - feuerwehr
   - wissen
   - orientierung
   - kartenkunde
+sources:
+  - https://feuerwehr-lernbar.bayern/post/uebersicht-kostenloser-dienste-und-anwendungen
 ---
 
 https://feuerwehr-lernbar.bayern/post/uebersicht-kostenloser-dienste-und-anwendungen

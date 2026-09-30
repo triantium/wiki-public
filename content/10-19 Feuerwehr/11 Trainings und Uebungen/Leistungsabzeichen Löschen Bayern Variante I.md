@@ -2,8 +2,11 @@
 publish: true
 created: 2026-08-11T09:16:58.432Z
 modified: 2026-09-24T14:21:24.435Z
+published: 2026-09-24T14:21:24.435Z
 tags:
   - übung
+sources:
+  - https://www.feuerwehr-lernbar.bayern/post/die-gruppe-im-loescheinsatz-information
 ---
 
 # Vorbereitung vor der Umsetzung

@@ -2,10 +2,15 @@
 publish: true
 created: 2026-07-20T10:44:30.895Z
 modified: 2026-09-28T10:59:13.389Z
+published: 2026-09-28T10:59:13.389Z
 tags:
   - feuerwehr
   - fahrzeuge
   - wasser
+sources:
+  - https://www.schaefer-mv.de/alu-boote/rettungsboot-uniboot/
+  - https://www.sichere-feuerwehr.de/feuerwehr/taetigkeiten-fw/auf-dem-wasser
+  - https://www.uniper.energy/de/deutschland/kraftwerke-deutschland/kraftwerksgruppe-donau
 ---
 
 # Aus dem Werbeprospekt

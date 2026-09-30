@@ -2,9 +2,13 @@
 publish: true
 created: 2026-07-20T15:45:06.336Z
 modified: 2026-09-24T14:23:21.188Z
+published: 2026-09-24T14:23:21.188Z
 tags:
   - feuerwehr
   - fahrzeuge
+fahrzeugklasse: MZB
+sources:
+  - https://neuburg.feuerwehr.io/fahrzeuge-und-technik/fahrzeuge/mzb-florian-neuburg-99-1_id846
 ---
 
 Das [[Mehrzweckboot]] wird zur Ausbringung unserer Ölsperre sowie zur Personensuche eingesetzt. Dank eines A-Saugeinganges im Rumpf des Bootes kann auch eine PFPN-10/1000 bzw. eine TS-8/8 auf dem Boot zur Löschwasserversorgung betrieben werden. Eine große Bugklappe erleichtert zudem das beladen bzw. die Personenrettung. 

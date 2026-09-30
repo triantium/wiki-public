@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-17T12:43:29.483Z
 modified: 2026-09-28T10:59:13.379Z
+published: 2026-09-28T10:59:13.379Z
 tags:
   - feuerwehr
   - fahrzeuge

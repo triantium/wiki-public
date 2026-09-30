@@ -2,8 +2,13 @@
 publish: true
 created: 2026-07-17T12:43:31.033Z
 modified: 2026-09-24T13:47:23.137Z
+published: 2026-09-24T13:47:23.137Z
 tags:
   - Projekt
+sources:
+  - https://www.grillcenter-nord.de/grill-magazin/tipps-tricks/3-oder-4-brenner-im-grill-wie-viele-brenner-sollte-dein-gasgrill-haben
+  - https://www.360bbq.de/grill-magazin/tipps_und_tricks/grillkaufberatung-welchen-gasgrill-soll-ich-kaufen/
+  - https://www.grillfuerst.de/magazin/ratgeber/grillen-mit-gas/welche-groesse-grill-grillflaeche/
 ---
 
 Welche Grillfläche für 10 Personen?

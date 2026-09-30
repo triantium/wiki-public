@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-30T07:13:41.309Z
 modified: 2026-09-24T13:44:34.846Z
+published: 2026-09-24T13:44:34.846Z
 tags:
   - übung
 ---

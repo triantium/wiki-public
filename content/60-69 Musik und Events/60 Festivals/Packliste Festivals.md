@@ -2,6 +2,7 @@
 publish: true
 created: 2026-09-24T13:48:59.718Z
 modified: 2026-09-28T11:03:18.015Z
+published: 2026-09-28T11:03:18.015Z
 tags:
   - festival
   - packliste

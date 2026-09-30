@@ -2,8 +2,11 @@
 publish: true
 created: 2026-07-21T13:00:30.636Z
 modified: 2026-09-28T11:03:18.019Z
+published: 2026-09-28T11:03:18.019Z
 tags:
   - rezept
+sources:
+  - https://www.chefkoch.de/rezepte/1590431266397184/Roastbeef-bei-80-C.html
 ---
 
 # [Roastbeef bei 80 °C](https://www.chefkoch.de/rezepte/1590431266397184/Roastbeef-bei-80-C.html)

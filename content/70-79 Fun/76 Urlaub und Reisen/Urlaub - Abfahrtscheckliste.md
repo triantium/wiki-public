@@ -2,6 +2,7 @@
 publish: true
 created: 2026-09-24T14:37:54.162Z
 modified: 2026-09-28T11:04:38.806Z
+published: 2026-09-28T11:04:38.806Z
 tags:
   - urlaub
   - packliste

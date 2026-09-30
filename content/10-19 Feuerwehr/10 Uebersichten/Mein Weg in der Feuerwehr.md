@@ -2,10 +2,15 @@
 publish: true
 created: 2026-07-17T12:43:29.483Z
 modified: 2026-09-28T10:59:13.379Z
+published: 2026-09-28T10:59:13.379Z
 tags:
   - feuerwehr
   - ausbildung
   - uebersicht
+sources:
+  - https://www.feuerwehr-ndsob.de/ausbildung/
+  - https://mpfeuer-vp.webservices.mpsoft4u.info/neuburgschrobenhausen/
+  - https://www.feuerwehr-ndsob.de/informationen/aktuelles/lehrgangsplatzverteilung-2026/
 ---
 
 # Ausbildung in der Feuerwehr

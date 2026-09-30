@@ -2,10 +2,15 @@
 publish: true
 created: 2026-07-17T12:43:31.145Z
 modified: 2026-09-30T10:11:16.955Z
+published: 2026-09-30T10:11:16.955Z
 tags:
   - hardware
   - tastatur
   - basteln
+sources:
+  - https://github.com/tadfisher/nyx-kb
+  - https://splitkb.com/cart
+  - https://jlcpcb.com
 ---
 
 https://github.com/tadfisher/nyx-kb

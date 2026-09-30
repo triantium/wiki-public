@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-21T12:59:10.243Z
 modified: 2026-09-28T11:03:18.021Z
+published: 2026-09-28T11:03:18.021Z
 tags:
   - wissen
   - familie

@@ -2,11 +2,16 @@
 publish: true
 created: 2026-07-17T12:43:29.483Z
 modified: 2026-09-28T10:59:13.391Z
+published: 2026-09-28T10:59:13.391Z
 tags:
   - feuerwehr
   - wissen
   - brände
   - personenbrand
+sources:
+  - https://bgn-branchenwissen.de/praxishilfen-von-a-z/brandschutz/personenbraende-richtig-loeschen
+  - https://www.feuerwehr-hohenkirchen.de/personenbr%C3%A4nde-l%C3%B6schen.html
+  - https://www.feuerwehrverband.de/app/uploads/2020/05/Fachempfehlung_Massnahmen_bei_Personenbraenden.pdf
 ---
 
 https://bgn-branchenwissen.de/praxishilfen-von-a-z/brandschutz/personenbraende-richtig-loeschen

@@ -2,10 +2,14 @@
 publish: true
 created: 2026-07-17T12:43:29.484Z
 modified: 2026-09-28T10:59:13.393Z
+published: 2026-09-28T10:59:13.393Z
 tags:
   - feuerwehr
   - vorbeugung
   - hitzeschutz
+sources:
+  - https://www.dwd.de/DE/leistungen/gefahrenindizesuvi/gefahrenindexuvi.html
+  - https://www.feuerwehr-lernbar.bayern/api/media/4536/raw/4536.pdf?version=1
 ---
 
 ### **Hitzeschutz im Feuerwehrdienst – Warum er notwendig ist!**

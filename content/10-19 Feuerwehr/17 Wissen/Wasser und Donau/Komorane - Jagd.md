@@ -2,11 +2,16 @@
 publish: true
 created: 2026-07-20T15:16:11.637Z
 modified: 2026-09-28T10:59:13.393Z
+published: 2026-09-28T10:59:13.393Z
 tags:
   - feuerwehr
   - wissen
   - wasser
   - natur
+sources:
+  - https://www.ovis.de/Jagdzeit-Kormoranjagd
+  - https://nrw.nabu.de/tiere-und-pflanzen/voegel/kormoran/04391.html
+  - https://www.bundestag.de/resource/blob/867494/6fb70f1a70f5a18ab1fde52dda9edcbb/WD-8-085-21-pdf-data.pdf
 ---
 
 In Deutschland unterliegt der Kormoran nicht dem Bundesjagdgesetz, sondern dem strengen Artenschutz. Daher gibt es keine bundeseinheitliche Jagdzeit. Der Abschuss zur Schadensabwehr an Gewässern ist jedoch in fast allen Bundesländern über spezielle Kormoranverordnungen oder artenschutzrechtliche Ausnahmegenehmigungen geregelt. Die Ausübung erfordert meist einen gültigen Jagdschein. \[[1](https://www.ovis.de/Jagdzeit-Kormoranjagd), [2](https://nrw.nabu.de/tiere-und-pflanzen/voegel/kormoran/04391.html), [3](https://www.bundestag.de/resource/blob/867494/6fb70f1a70f5a18ab1fde52dda9edcbb/WD-8-085-21-pdf-data.pdf), [4](https://www.youtube.com/watch?v=Lp1TWocpqfE), [5](https://kraehenjagd.eu/jagd-kormoran-mit-der-lockjagd/), [6](https://www.landkreis-mittelsachsen.de/fileadmin/Redakteure/Behoerden/1_Geschaeftskreis/Umwelt_Forst_Lawi/Naturschutz/mb-kormoranverordnung-ua.pdf)]

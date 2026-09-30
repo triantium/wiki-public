@@ -2,9 +2,16 @@
 publish: true
 created: 2026-07-17T12:43:29.485Z
 modified: 2026-09-24T13:35:35.084Z
+published: 2026-09-24T13:35:35.084Z
 tags:
   - dienstanweisung
   - entwurf
+jahr: 2023
+status: entwurf
+sources:
+  - https://www.sfs-w.de/projektgruppe-feuerwehr-dienstvorschriften/feuerwehr-dienstvorschriften?did=921&download=FwDV_DV_800__V1.3_.pdf&no_cache=1&cHash=64e32185bea0cf2acd4a7404f008392d
+  - https://www.sfs-w.de/projektgruppe-feuerwehr-dienstvorschriften/feuerwehr-dienstvorschriften?did=937&download=FwDV_DV_810__Version1.3__2018-09-26.pdf&no_cache=1&cHash=a78348901189b53d81bde8a6c1803de6
+  - https://www.ietf.org/rfc/rfc2119.txt
 ---
 
 Zeichen: FFBT-DA-2023-001

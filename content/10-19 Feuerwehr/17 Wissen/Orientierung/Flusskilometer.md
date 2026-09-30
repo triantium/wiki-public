@@ -2,9 +2,12 @@
 publish: true
 created: 2026-07-20T15:34:18.110Z
 modified: 2026-09-24T13:21:24.074Z
+published: 2026-09-24T13:21:24.074Z
 tags:
   - feuerwehr
   - wissen
+sources:
+  - https://de.wikipedia.org/wiki/Kilometrierung
 ---
 
 # Bertoldsheim

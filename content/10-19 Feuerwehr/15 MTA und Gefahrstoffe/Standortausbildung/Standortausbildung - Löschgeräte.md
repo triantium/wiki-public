@@ -2,11 +2,19 @@
 publish: true
 created: 2026-07-17T12:43:29.508Z
 modified: 2026-09-28T10:59:13.391Z
+published: 2026-09-28T10:59:13.391Z
 tags:
   - feuerwehr
   - ausbildung
   - mta
   - loeschgeraete
+theme: institutional
+theme_overrides:
+  logo: /home/triantium/Dokumente/Feuerwehr/Bertoldsheim/Bilder/Wappen/Taferl.svg
+sources:
+  - https://www.feuerwehr-lernbar.bayern/post/mta-loschgerate-schlauche-und-armaturen
+  - https://www.feuerwehr-lernbar.bayern/api/media/3451/raw/Tragbare%20Feuerl%C3%B6scher.pdf?version=1
+  - https://www.feuerwehr-lernbar.bayern/post/fi_loeschmittel-loeschverfahren
 ---
 
 ## Löschgeräte

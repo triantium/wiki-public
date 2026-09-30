@@ -2,10 +2,15 @@
 publish: true
 created: 2026-07-21T12:59:57.265Z
 modified: 2026-09-28T11:03:18.019Z
+published: 2026-09-28T11:03:18.019Z
 tags:
   - software
   - rezept
   - markdown
+sources:
+  - https://recipemd.org/index.html
+  - https://recipemd.org/specification.html
+  - https://commonmark.org
 ---
 
 https://recipemd.org/index.html

@@ -2,6 +2,9 @@
 publish: true
 created: 2026-09-30T08:48:22.388Z
 modified: 2026-09-30T08:58:21.763Z
+published: 2026-09-30T08:58:21.763Z
+sources:
+  - https://www.netzmuffel.de/para/
 ---
 
 # PARA

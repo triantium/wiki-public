@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-30T12:11:56.296Z
 modified: 2026-09-24T13:40:43.007Z
+published: 2026-09-24T13:40:43.007Z
 tags:
   - feuerwehr
 ---

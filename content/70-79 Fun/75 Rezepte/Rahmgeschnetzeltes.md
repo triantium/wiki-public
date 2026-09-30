@@ -2,8 +2,11 @@
 publish: true
 created: 2026-07-21T13:00:30.620Z
 modified: 2026-09-28T11:03:18.019Z
+published: 2026-09-28T11:03:18.019Z
 tags:
   - rezept
+sources:
+  - https://www.landgemachtes.de/2022/09/rahmgeschnetzeltes/
 ---
 
 **4 Portionen**

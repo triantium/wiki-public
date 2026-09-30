@@ -2,8 +2,11 @@
 publish: true
 created: 2026-07-21T13:00:30.624Z
 modified: 2026-09-28T11:03:18.019Z
+published: 2026-09-28T11:03:18.019Z
 tags:
   - rezept
+sources:
+  - https://www.chefkoch.de/rezepte/1208161226570428/Der-perfekte-Pfannkuchen-gelingt-einfach-immer.html
 ---
 
 **4 Servings**

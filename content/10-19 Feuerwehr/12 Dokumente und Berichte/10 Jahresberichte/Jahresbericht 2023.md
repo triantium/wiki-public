@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-17T12:43:29.495Z
 modified: 2026-09-24T13:43:22.420Z
+published: 2026-09-24T13:43:22.420Z
 tags:
   - jahresübersicht
 ---

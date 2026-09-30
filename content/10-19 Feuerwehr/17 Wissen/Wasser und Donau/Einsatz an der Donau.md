@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-20T15:42:39.002Z
 modified: 2026-09-24T13:22:16.387Z
+published: 2026-09-24T13:22:16.387Z
 tags:
   - feuerwehr
   - vorbereitung

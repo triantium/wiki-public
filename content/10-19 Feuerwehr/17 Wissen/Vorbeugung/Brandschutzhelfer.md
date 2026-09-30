@@ -2,10 +2,15 @@
 publish: true
 created: 2026-07-17T12:43:29.483Z
 modified: 2026-09-28T10:59:13.393Z
+published: 2026-09-28T10:59:13.393Z
 tags:
   - feuerwehr
   - vorbeugung
   - brandschutz
+sources:
+  - https://publikationen.dguv.de/regelwerk/dguv-informationen/2848/brandschutzhelfer
+  - https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A1-3
+  - https://www.helpi.com/Brandschutz/Brandsimulation.htm<br
 ---
 
 https://publikationen.dguv.de/regelwerk/dguv-informationen/2848/brandschutzhelfer

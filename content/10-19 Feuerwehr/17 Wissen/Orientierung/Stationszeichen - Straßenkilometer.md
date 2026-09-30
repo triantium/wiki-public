@@ -2,11 +2,14 @@
 publish: true
 created: 2026-09-24T11:22:40.938Z
 modified: 2026-09-28T10:59:13.392Z
+published: 2026-09-28T10:59:13.392Z
 tags:
   - feuerwehr
   - wissen
   - orientierung
   - strassenverkehr
+sources:
+  - https://www.baysis.bayern.de/internet/strasseninformationen/index.html
 ---
 
 ![[10-19 Feuerwehr/17 Wissen/assets/stationszeichen.png]]

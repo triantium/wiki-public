@@ -2,6 +2,7 @@
 publish: true
 created: 2026-07-17T12:43:30.948Z
 modified: 2026-09-28T11:03:18.018Z
+published: 2026-09-28T11:03:18.018Z
 tags:
   - rezept
   - mexikanisch

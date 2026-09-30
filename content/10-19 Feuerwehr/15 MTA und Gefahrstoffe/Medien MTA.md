@@ -2,12 +2,17 @@
 publish: true
 created: 2026-07-17T12:43:29.481Z
 modified: 2026-09-28T10:59:13.390Z
+published: 2026-09-28T10:59:13.390Z
 tags:
   - feuerwehr
   - ausbildung
   - gefahrstoffe
   - mta
   - medien
+sources:
+  - https://www.youtube.com/watch?v=6VyIDIAsCTI
+  - https://www.youtube.com/watch?v=9ZCrwWNRKkQ
+  - https://www.youtube.com/watch?v=-4tr0B3pEFct?=190
 ---
 
 # Atemgifte

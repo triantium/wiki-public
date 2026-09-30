@@ -3,6 +3,7 @@ publish: true
 title: Willkomen im Reich des begrenzten Wissens
 created: 2026-09-24T13:28:02.578Z
 modified: 2026-09-28T11:03:18.026Z
+published: 2026-09-28T11:03:18.026Z
 tags:
   - uebersicht
   - startseite

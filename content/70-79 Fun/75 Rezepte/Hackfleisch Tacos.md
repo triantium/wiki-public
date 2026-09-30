@@ -2,9 +2,12 @@
 publish: true
 created: 2026-07-21T13:00:30.632Z
 modified: 2026-09-28T11:03:18.018Z
+published: 2026-09-28T11:03:18.018Z
 tags:
   - rezept
   - mexikanisch
+sources:
+  - https://www.chefkoch.de/rezepte/2529881396467471/Hackfleisch-Tacos.html
 ---
 
 **4 Portionen**

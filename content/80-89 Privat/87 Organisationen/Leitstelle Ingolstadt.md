@@ -2,6 +2,7 @@
 publish: true
 created: 2026-09-30T14:54:15.695Z
 modified: 2026-09-30T15:04:05.598Z
+published: 2026-09-30T15:04:05.598Z
 ---
 
 ```base

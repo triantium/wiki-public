@@ -2,10 +2,12 @@
 publish: true
 created: 2026-07-17T12:43:31.119Z
 modified: 2026-09-24T14:31:26.828Z
+published: 2026-09-24T14:31:26.828Z
 tags:
   - anleitung
   - feuerwehr
   - einsatzbericht
+url: https://einsatznachbearbeitung.bayern.de
 ---
 
 Bei der Pflege der Liste muss auf die Übernahme in die jährliche Stärkemeldung geachtet werden.

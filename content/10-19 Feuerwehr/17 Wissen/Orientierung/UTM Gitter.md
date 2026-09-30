@@ -2,6 +2,7 @@
 publish: true
 created: 2026-09-24T07:20:49.950Z
 modified: 2026-09-28T10:59:13.392Z
+published: 2026-09-28T10:59:13.392Z
 tags:
   - feuerwehr
   - wissen
