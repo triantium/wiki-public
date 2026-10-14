@@ -1,8 +1,8 @@
 ---
 publish: true
 created: 2026-10-14T07:26:53.348Z
-modified: 2026-10-14T07:33:55.634Z
-published: 2026-10-14T07:33:55.634Z
+modified: 2026-10-14T07:44:32.867Z
+published: 2026-10-14T07:44:32.867Z
 tags:
   - feuerwehr
   - software
@@ -29,5 +29,5 @@ Keine von der Gemeinde gestellten oder verwendeten Sofwareprodukte
 
 - [Einsatznachbearbeitung](https://einsatznachbearbeitung.bayern.de/login)
 - [BayLern](https://www.baylern.de/)
-- [Feuewehr Lernbar](https://feuerwehr-lernbar.bayern/)
+- [Feuerwehr Lernbar](https://feuerwehr-lernbar.bayern/)
 - [Freie Lehrgangsplätze](https://www.bms-fw.bayern.de/Navigation/Public/LastMinute.aspx)
