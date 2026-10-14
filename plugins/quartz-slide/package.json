@@ -1,0 +1,54 @@
+{
+  "name": "quartz-slide",
+  "version": "2.0.0",
+  "description": "Render notes tagged as presentations into standalone Marp slide decks",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "quartz": {
+    "name": "quartz-slide",
+    "displayName": "Slide",
+    "description": "Render notes tagged as presentations into standalone Marp slide decks",
+    "category": [
+      "emitter",
+      "component"
+    ],
+    "version": "2.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "outputDir": "presentation",
+      "tag": "presentation",
+      "frontmatterKey": "presentation"
+    },
+    "components": {
+      "Slide": {
+        "displayName": "Slide",
+        "description": "Open the Marp slide deck for the current presentation",
+        "defaultPosition": "left",
+        "defaultPriority": 37
+      }
+    }
+  }
+}

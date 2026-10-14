@@ -1,0 +1,24 @@
+.slide-button {
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--darkgray);
+  text-decoration: none;
+}
+.slide-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: opacity 0.1s ease;
+}
+.slide-button:hover {
+  opacity: 0.7;
+}
