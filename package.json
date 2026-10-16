@@ -42,7 +42,7 @@
     "@floating-ui/dom": "^1.7.4",
     "@marp-team/marp-core": "^4.4.0",
     "@myriaddreamin/rehype-typst": "^0.7.0",
-    "@napi-rs/simple-git": "1.1.0",
+    "@napi-rs/simple-git": "1.2.0",
     "@quartz-community/alias-redirects": "^1.0.0",
     "@quartz-community/article-title": "^1.0.0",
     "@quartz-community/backlinks": "^1.0.0",
