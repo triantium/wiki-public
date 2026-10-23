@@ -1,8 +1,8 @@
 ---
 publish: true
-created: 2026-07-17T12:43:29.483Z
-modified: 2026-09-28T10:59:13.379Z
-published: 2026-09-28T10:59:13.379Z
+created: 2026-10-21T10:51:19.185Z
+modified: 2026-10-21T10:51:19.185Z
+published: 2026-10-21T10:51:19.185Z
 tags:
   - feuerwehr
   - fahrzeuge
@@ -44,7 +44,7 @@ und
    2. Die Breite der Alarmwege, muss mindenstens 1,20 m betragen.
 2. Die Räumlickkeiten und das Inventar sind pfleglich zu behandeln.
 3. Fahrzeuge und Einsatzgeräte dürfen nicht benutzt werden.
-4. Alarm- und Statusmonitore sind vor Benutzung abzuschalten.
+4. Alarm- und [[Statusmonitore]] sind vor Benutzung abzuschalten.
 5. Funkgeräte sind auszuschalten und im Fahrzeug zu verschließen.
 6. Die Fahrzeugschlüssel sind im Schlüsselkasten durch einen Feuerwehrangehörigen zu hinterlegen. Der Code wird nicht an den Veranstalter übergeben.
 7. Werden die Fahrzeuge aus der Halle entfernt, müssen sie jederzeit einsatbereit sein.

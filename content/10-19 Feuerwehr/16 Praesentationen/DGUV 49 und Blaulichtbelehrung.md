@@ -1,12 +1,11 @@
 ---
 publish: true
 created: 2026-10-14T13:28:04.219Z
-modified: 2026-10-14T13:31:18.843Z
-published: 2026-10-14T13:31:18.843Z
+modified: 2026-10-14T14:42:19.653Z
+published: 2026-10-14T14:42:19.653Z
 tags:
   - feuerwehr
   - presentation
-theme: beige
 enableOverview: "true"
 slideNumber: "true"
 ---
