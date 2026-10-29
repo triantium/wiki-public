@@ -26,6 +26,25 @@ const MarpSlides: QuartzEmitterPlugin<Partial<MarpSlideOptions>> = (userOpts) =>
       const marp = new Marp()
       const written: FilePath[] = []
 
+      let defaultTheme = opts.theme || "default"
+
+      if (opts.themeCss) {
+        const cssPath = path.resolve(process.cwd(), opts.themeCss)
+        const themeCss = await fs.promises.readFile(cssPath, "utf8")
+        marp.themeSet.add(themeCss)
+        const themeName = themeCss.match(/@theme\s+([\w-]+)/)?.[1]
+        if (themeName && !opts.theme) {
+          defaultTheme = themeName
+        }
+      }
+
+      if (!marp.themeSet.has(defaultTheme)) {
+        console.warn(
+          `[quartz-slide] unknown Marp theme "${defaultTheme}", falling back to "default"`,
+        )
+        defaultTheme = "default"
+      }
+
       for (const [_tree, vfile] of content) {
         const data = vfile.data as Record<string, unknown>
         const frontmatter = data.frontmatter as Record<string, unknown> | undefined
@@ -37,7 +56,21 @@ const MarpSlides: QuartzEmitterPlugin<Partial<MarpSlideOptions>> = (userOpts) =>
         const markdown = stripFrontmatter(String(vfile.value))
         if (markdown.trim().length === 0) continue
 
-        const { html, css } = marp.render(markdown)
+        const perNoteTheme = frontmatter?.presentationTheme ?? frontmatter?.presentation_theme
+        const requestedTheme = typeof perNoteTheme === "string" ? perNoteTheme : defaultTheme
+        const theme = marp.themeSet.has(requestedTheme) ? requestedTheme : defaultTheme
+
+        const perNoteClass = frontmatter?.presentationClass ?? frontmatter?.presentation_class
+        const themeClass =
+          typeof perNoteClass === "string" ? perNoteClass.trim() : String(opts.class ?? "").trim()
+
+        const directives = [`theme: ${theme}`]
+        if (themeClass.length > 0) {
+          directives.push(`class: ${themeClass}`)
+        }
+        const source = `---\n${directives.join("\n")}\n---\n\n${markdown}`
+
+        const { html, css } = marp.render(source)
         const title =
           typeof frontmatter?.title === "string" && frontmatter.title.length > 0
             ? frontmatter.title

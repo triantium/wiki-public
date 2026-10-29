@@ -187,7 +187,9 @@ plugins:
       group: toolbar
   - source: ./plugins/quartz-slide
     enabled: true
-    options: {}
+    options:
+      theme: gaia
+      class: invert
     layout:
       position: left
       priority: 37

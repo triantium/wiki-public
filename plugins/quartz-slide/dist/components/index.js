@@ -2,7 +2,10 @@
 var defaultOptions = {
   outputDir: "presentation",
   tag: "presentation",
-  frontmatterKey: "presentation"
+  frontmatterKey: "presentation",
+  theme: "",
+  themeCss: "",
+  class: ""
 };
 
 // plugins/quartz-slide/src/util/slides.ts

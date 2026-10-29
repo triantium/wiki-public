@@ -40,7 +40,10 @@
     "defaultOptions": {
       "outputDir": "presentation",
       "tag": "presentation",
-      "frontmatterKey": "presentation"
+      "frontmatterKey": "presentation",
+      "theme": "",
+      "themeCss": "",
+      "class": ""
     },
     "components": {
       "Slide": {
