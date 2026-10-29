@@ -12,3 +12,7 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+# Local plugins are symlinked, not built on install, so keep their build output.
+!plugins/quartz-slide/dist/
+!plugins/quartz-slide/dist/**
