@@ -1,8 +1,8 @@
 ---
 publish: true
-created: 2026-07-21T13:00:30.624Z
-modified: 2026-09-28T11:03:18.019Z
-published: 2026-09-28T11:03:18.019Z
+created: 2026-10-26T07:23:49.786Z
+modified: 2026-10-26T07:23:49.786Z
+published: 2026-10-26T07:23:49.786Z
 tags:
   - rezept
 sources:
@@ -36,3 +36,9 @@ Die Herdplatte anfangs auf höchster Stufe aufheizen und etwas Butter in die Pfa
 Am gleichmäßigsten gelingen die Pfannkuchen so: Die heiße Pfanne von der Kochstelle nehmen und die Butter durch geschicktes Schwenken gleichmäßig verteilen. Jetzt mit einem großen Schöpflöffel eine Kelle Teig in die heiße Pfanne geben und diesen ebenfalls durch Schwenken gleichmäßig verteilen.
 
 Wichtig: Auf jeden Fall lange genug warten, bis die Unterseite richtig schön gebräunt und der Pfannkuchen entsprechend fest geworden ist. Das merkt man, wenn man versucht den Pfannkuchen mit dem Pfannenwender anzuheben. Wenn das ganz einfach geht, dann kann man den Pfannkuchen problemlos wenden, ohne dass dieser zerreißt. Nun noch die zweite Seite schön goldgelb backen.
+
+HINWEISE:
+
+![[Recording 20261025103519.m4a]]
+
+![[Recording 20261025103532.m4a]]
