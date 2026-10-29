@@ -186,9 +186,20 @@ The generated deck is a single self-contained HTML file with a small viewer:
 - `ArrowLeft` / `ArrowUp` / `PageUp`: previous slide
 - `Home` / `End`: first / last slide
 - `p`: open the presenter view in a new window
+- `c` (or `w`): toggle the colorblind-safe Wong palette
 - `f`: toggle fullscreen
 - Click the right or left half of the screen to move forward or back
 - Printing outputs one slide per page
+
+### Colorblind mode (Wong palette)
+
+Press `c` (or `w`) to switch that deck to a light, high-contrast version of the
+[Wong colorblind-safe palette](https://www.nature.com/articles/nmeth.1618):
+black `#000000`, orange `#E69F00`, sky blue `#56B4E9`, bluish green `#009E73`,
+yellow `#F0E442`, blue `#0072B2`, vermillion `#D55E00`, and reddish purple
+`#CC79A7`. The choice is remembered per deck in `localStorage`, and it stays in
+sync between the audience and presenter windows. Press the shortcut again to
+return to the deck's normal theme.
 
 ### Presenter view
 

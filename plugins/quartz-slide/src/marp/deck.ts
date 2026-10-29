@@ -24,6 +24,7 @@ const CLIENT_SCRIPT = `
   var current = 0;
   var scrollLock = 0;
   var presenterWindow = null;
+  var wongKey = "quartz-slide:wong:" + window.location.pathname;
   var channel = null;
   try {
     if ("BroadcastChannel" in window) {
@@ -43,8 +44,15 @@ const CLIENT_SCRIPT = `
     if (!message || typeof message !== "object") return;
     if (message.type === "goto" || message.type === "sync") {
       go(message.index, false);
+      if (typeof message.wong === "boolean") setWong(message.wong, false);
+    } else if (message.type === "wong") {
+      setWong(!!message.enabled, false);
     } else if (message.type === "hello" && !isPresenter) {
-      send({ type: "sync", index: current });
+      send({
+        type: "sync",
+        index: current,
+        wong: document.body.classList.contains("wong")
+      });
     }
   }
 
@@ -71,6 +79,21 @@ const CLIENT_SCRIPT = `
     } else if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen();
     }
+  }
+
+  function updateHint() {
+    var hint = document.getElementById("marp-hint");
+    if (!hint) return;
+    hint.textContent = document.body.classList.contains("wong")
+      ? "\u2190 \u2192 \u00b7 P presenter \u00b7 C colorblind on \u00b7 F fullscreen"
+      : "\u2190 \u2192 \u00b7 P presenter \u00b7 C colorblind \u00b7 F fullscreen";
+  }
+
+  function setWong(enabled, broadcast) {
+    document.body.classList.toggle("wong", enabled);
+    try { localStorage.setItem(wongKey, enabled ? "1" : "0"); } catch (e) {}
+    updateHint();
+    if (broadcast !== false) send({ type: "wong", enabled: !!enabled });
   }
 
   function setupAudience() {
@@ -126,6 +149,9 @@ const CLIENT_SCRIPT = `
       } else if (key === "p" || key === "P") {
         event.preventDefault();
         openPresenter();
+      } else if (key === "c" || key === "C" || key === "w" || key === "W") {
+        event.preventDefault();
+        setWong(!document.body.classList.contains("wong"));
       } else if (key === "f" || key === "F") {
         toggleFullscreen();
       }
@@ -138,6 +164,7 @@ const CLIENT_SCRIPT = `
     });
 
     updateAudience();
+    updateHint();
   }
 
   function setupPresenter() {
@@ -192,12 +219,19 @@ const CLIENT_SCRIPT = `
       return "";
     }
 
+    function wrapSlide(slide) {
+      var wrap = document.createElement("div");
+      wrap.className = "marpit";
+      wrap.appendChild(slide.cloneNode(true));
+      return wrap;
+    }
+
     updatePresenter = function () {
       currentBox.textContent = "";
       nextBox.textContent = "";
-      if (slides[current]) currentBox.appendChild(slides[current].cloneNode(true));
+      if (slides[current]) currentBox.appendChild(wrapSlide(slides[current]));
       if (slides[current + 1]) {
-        nextBox.appendChild(slides[current + 1].cloneNode(true));
+        nextBox.appendChild(wrapSlide(slides[current + 1]));
         if (nextWrap) nextWrap.style.visibility = "visible";
       } else if (nextWrap) {
         nextWrap.style.visibility = "hidden";
@@ -279,6 +313,9 @@ const CLIENT_SCRIPT = `
         go(total - 1);
       } else if (key === "p" || key === "P" || key === "Escape") {
         window.close();
+      } else if (key === "c" || key === "C" || key === "w" || key === "W") {
+        event.preventDefault();
+        setWong(!document.body.classList.contains("wong"));
       } else if (key === "f" || key === "F") {
         toggleFullscreen();
       }
@@ -292,6 +329,10 @@ const CLIENT_SCRIPT = `
   window.addEventListener("message", function (event) {
     if (event.origin === window.location.origin) handle(event.data);
   });
+
+  try {
+    if (localStorage.getItem(wongKey) === "1") document.body.classList.add("wong");
+  } catch (e) {}
 
   if (isPresenter) { setupPresenter(); } else { setupAudience(); }
 })();
@@ -351,6 +392,10 @@ svg[data-marpit-svg] { scroll-snap-align: start; scroll-snap-stop: always; }
   border-radius: 8px;
   overflow: hidden;
 }
+#p-current > .marpit, #p-next > .marpit {
+  width: 100%;
+  height: 100%;
+}
 #p-current svg[data-marpit-svg], #p-next svg[data-marpit-svg] {
   width: 100%;
   height: 100%;
@@ -400,6 +445,153 @@ svg[data-marpit-svg] { scroll-snap-align: start; scroll-snap-stop: always; }
 #p-info button:hover { background: #3a3a3a; }
 #p-close-hint { margin-left: auto; color: #6b7075; font-size: 12px; }
 
+body.wong {
+  background: #fff;
+}
+body.wong .marpit > svg > foreignObject > section {
+  color-scheme: light;
+
+  --wong-orange: #e69f00;
+  --wong-sky: #56b4e9;
+  --wong-green: #009e73;
+  --wong-yellow: #f0e442;
+  --wong-blue: #0072b2;
+  --wong-vermillion: #d55e00;
+  --wong-purple: #cc79a7;
+
+  --bgColor-default: #fff;
+  --fgColor-default: #000;
+  --fgColor-muted: #444;
+  --fgColor-accent: var(--wong-blue);
+  --fgColor-attention: var(--wong-vermillion);
+  --fgColor-success: var(--wong-green);
+  --fgColor-danger: var(--wong-vermillion);
+  --fgColor-done: var(--wong-purple);
+
+  --bgColor-muted: #f2f2f2;
+  --bgColor-attention-muted: #f0e44255;
+  --bgColor-neutral-muted: #f2f2f2;
+
+  --borderColor-default: #bbb;
+  --borderColor-muted: #ddd;
+  --borderColor-neutral-muted: #bbb;
+  --borderColor-accent-emphasis: var(--wong-blue);
+  --borderColor-attention-emphasis: var(--wong-vermillion);
+  --borderColor-danger-emphasis: var(--wong-vermillion);
+  --borderColor-done-emphasis: var(--wong-purple);
+  --borderColor-success-emphasis: var(--wong-green);
+
+  --h1-color: var(--wong-vermillion);
+  --heading-strong-color: #000;
+  --header-footer-color: #444;
+  --paginate-color: #444;
+  --focus-outlineColor: var(--wong-blue);
+
+  --color-prettylights-syntax-comment: #555;
+  --color-prettylights-syntax-constant: var(--wong-blue);
+  --color-prettylights-syntax-constant-other-reference-link: var(--wong-blue);
+  --color-prettylights-syntax-entity: var(--wong-purple);
+  --color-prettylights-syntax-entity-tag: var(--wong-green);
+  --color-prettylights-syntax-keyword: var(--wong-green);
+  --color-prettylights-syntax-string: var(--wong-blue);
+  --color-prettylights-syntax-string-regexp: var(--wong-green);
+  --color-prettylights-syntax-variable: var(--wong-vermillion);
+  --color-prettylights-syntax-markup-heading: var(--wong-vermillion);
+  --color-prettylights-syntax-markup-bold: #000;
+  --color-prettylights-syntax-markup-italic: #000;
+  --color-prettylights-syntax-storage-modifier-import: #000;
+  --color-prettylights-syntax-brackethighlighter-angle: #555;
+  --color-prettylights-syntax-brackethighlighter-unmatched: var(--wong-vermillion);
+  --color-prettylights-syntax-invalid-illegal-text: #fff;
+  --color-prettylights-syntax-invalid-illegal-bg: var(--wong-vermillion);
+  --color-prettylights-syntax-markup-deleted-text: var(--wong-vermillion);
+  --color-prettylights-syntax-markup-deleted-bg: #d55e0022;
+  --color-prettylights-syntax-markup-inserted-text: var(--wong-green);
+  --color-prettylights-syntax-markup-inserted-bg: #009e7322;
+  --color-prettylights-syntax-markup-changed-text: var(--wong-orange);
+  --color-prettylights-syntax-markup-changed-bg: #e69f0022;
+  --color-prettylights-syntax-markup-ignored-text: #555;
+  --color-prettylights-syntax-markup-ignored-bg: #00000011;
+  --color-prettylights-syntax-markup-list: var(--wong-vermillion);
+  --color-prettylights-syntax-meta-diff-range: var(--wong-purple);
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #555;
+  --color-prettylights-syntax-carriage-return-bg: var(--wong-vermillion);
+  --color-prettylights-syntax-carriage-return-text: #fff;
+
+  background-color: #fff;
+  color: #000;
+}
+body.wong .marpit > svg > foreignObject > section h1 {
+  color: var(--wong-vermillion);
+}
+body.wong .marpit > svg > foreignObject > section h2 {
+  color: var(--wong-blue);
+}
+body.wong .marpit > svg > foreignObject > section h3 {
+  color: var(--wong-green);
+}
+body.wong .marpit > svg > foreignObject > section h4 {
+  color: var(--wong-purple);
+}
+body.wong .marpit > svg > foreignObject > section h5 {
+  color: var(--wong-orange);
+}
+body.wong .marpit > svg > foreignObject > section h6 {
+  color: #000;
+}
+body.wong .marpit > svg > foreignObject > section a {
+  color: var(--wong-blue);
+}
+body.wong .marpit > svg > foreignObject > section a:hover {
+  color: var(--wong-vermillion);
+}
+body.wong .marpit > svg > foreignObject > section strong,
+body.wong .marpit > svg > foreignObject > section em {
+  color: #000;
+}
+body.wong .marpit > svg > foreignObject > section code,
+body.wong .marpit > svg > foreignObject > section tt {
+  color: var(--wong-blue);
+  background-color: #f2f2f2;
+}
+body.wong .marpit > svg > foreignObject > section :is(pre, marp-pre) {
+  background-color: #f2f2f2;
+}
+body.wong .marpit > svg > foreignObject > section :is(pre, marp-pre) code,
+body.wong .marpit > svg > foreignObject > section :is(pre, marp-pre) tt {
+  color: #000;
+  background-color: transparent;
+}
+body.wong .marpit > svg > foreignObject > section blockquote {
+  color: #444;
+  border-left-color: var(--wong-blue);
+}
+body.wong .marpit > svg > foreignObject > section mark {
+  background-color: var(--wong-yellow);
+  color: #000;
+}
+body.wong .marpit > svg > foreignObject > section table td,
+body.wong .marpit > svg > foreignObject > section table th {
+  border-color: #bbb;
+}
+body.wong .marpit > svg > foreignObject > section table tr:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+body.wong .marpit > svg > foreignObject > section hr {
+  background-color: #bbb;
+}
+body.wong .marpit > svg > foreignObject > section header,
+body.wong .marpit > svg > foreignObject > section footer,
+body.wong .marpit > svg > foreignObject > section::after {
+  color: #444;
+}
+body.wong #marp-counter,
+body.wong #marp-hint {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border: 1px solid #ddd;
+}
+
 @media print {
   body { overflow: visible; background: #fff; }
   #marp-counter, #marp-hint { display: none; }
@@ -429,7 +621,7 @@ export function renderDeck({ title, marpHtml, marpCss, notes = [] }: DeckInput):
 <body>
 ${marpHtml}
 <div id="marp-counter">1 / 1</div>
-<div id="marp-hint">\u2190 \u2192 &middot; P presenter &middot; F fullscreen</div>
+<div id="marp-hint">\u2190 \u2192 &middot; P presenter &middot; C colorblind &middot; F fullscreen</div>
 <script type="application/json" id="marp-notes">${notesJson}</script>
 <script>${CLIENT_SCRIPT}</script>
 </body>
