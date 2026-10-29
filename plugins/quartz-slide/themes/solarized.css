@@ -1,0 +1,254 @@
+/*!
+ * Solarized theme for Marp.
+ *
+ * Inherits the Marp default theme (layout, auto-scaling, pagination, code) and
+ * only replaces the palette and typography. Add `class: invert` for the light
+ * Solarized variant.
+ *
+ * @theme solarized
+ * @author quartz-slide
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ */
+
+@import "default";
+
+section {
+  color-scheme: dark;
+
+  --sol-base03: #002b36;
+  --sol-base02: #073642;
+  --sol-base01: #586e75;
+  --sol-base00: #657b83;
+  --sol-base0: #839496;
+  --sol-base1: #93a1a1;
+  --sol-base2: #eee8d5;
+  --sol-base3: #fdf6e3;
+  --sol-yellow: #b58900;
+  --sol-orange: #cb4b16;
+  --sol-red: #dc322f;
+  --sol-magenta: #d33682;
+  --sol-violet: #6c71c4;
+  --sol-blue: #268bd2;
+  --sol-cyan: #2aa198;
+  --sol-green: #859900;
+
+  --fontStack-sansSerif:
+    "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  --bgColor-default: var(--sol-base03);
+  --fgColor-default: var(--sol-base0);
+  --fgColor-muted: var(--sol-base01);
+  --fgColor-accent: var(--sol-blue);
+  --fgColor-attention: var(--sol-yellow);
+  --fgColor-success: var(--sol-green);
+  --fgColor-danger: var(--sol-red);
+  --fgColor-done: var(--sol-violet);
+
+  --bgColor-muted: var(--sol-base02);
+  --bgColor-attention-muted: #b5890026;
+  --bgColor-neutral-muted: #07364299;
+
+  --borderColor-default: var(--sol-base02);
+  --borderColor-muted: var(--sol-base02);
+  --borderColor-neutral-muted: #0d4d5e;
+  --borderColor-accent-emphasis: var(--sol-blue);
+  --borderColor-attention-emphasis: var(--sol-yellow);
+  --borderColor-danger-emphasis: var(--sol-red);
+  --borderColor-done-emphasis: var(--sol-violet);
+  --borderColor-success-emphasis: var(--sol-green);
+
+  --h1-color: var(--sol-yellow);
+  --heading-strong-color: var(--sol-base1);
+  --header-footer-color: var(--sol-base01);
+  --paginate-color: var(--sol-base01);
+  --focus-outlineColor: var(--sol-blue);
+
+  --color-prettylights-syntax-comment: var(--sol-base01);
+  --color-prettylights-syntax-constant: var(--sol-cyan);
+  --color-prettylights-syntax-constant-other-reference-link: var(--sol-cyan);
+  --color-prettylights-syntax-entity: var(--sol-violet);
+  --color-prettylights-syntax-entity-tag: var(--sol-green);
+  --color-prettylights-syntax-keyword: var(--sol-green);
+  --color-prettylights-syntax-string: var(--sol-cyan);
+  --color-prettylights-syntax-string-regexp: var(--sol-cyan);
+  --color-prettylights-syntax-variable: var(--sol-orange);
+  --color-prettylights-syntax-markup-heading: var(--sol-blue);
+  --color-prettylights-syntax-markup-bold: var(--sol-base1);
+  --color-prettylights-syntax-markup-italic: var(--sol-base1);
+  --color-prettylights-syntax-storage-modifier-import: var(--sol-base1);
+  --color-prettylights-syntax-brackethighlighter-angle: var(--sol-base01);
+  --color-prettylights-syntax-brackethighlighter-unmatched: var(--sol-red);
+  --color-prettylights-syntax-invalid-illegal-text: var(--sol-base3);
+  --color-prettylights-syntax-invalid-illegal-bg: var(--sol-red);
+  --color-prettylights-syntax-markup-deleted-text: var(--sol-red);
+  --color-prettylights-syntax-markup-deleted-bg: #dc322f26;
+  --color-prettylights-syntax-markup-inserted-text: var(--sol-green);
+  --color-prettylights-syntax-markup-inserted-bg: #85990026;
+  --color-prettylights-syntax-markup-changed-text: var(--sol-orange);
+  --color-prettylights-syntax-markup-changed-bg: #cb4b1626;
+  --color-prettylights-syntax-markup-ignored-text: var(--sol-base01);
+  --color-prettylights-syntax-markup-ignored-bg: #586e7526;
+  --color-prettylights-syntax-markup-list: var(--sol-yellow);
+  --color-prettylights-syntax-meta-diff-range: var(--sol-violet);
+  --color-prettylights-syntax-sublimelinter-gutter-mark: var(--sol-base01);
+  --color-prettylights-syntax-carriage-return-bg: var(--sol-red);
+  --color-prettylights-syntax-carriage-return-text: var(--sol-base3);
+
+  background-color: var(--sol-base03);
+  color: var(--sol-base0);
+}
+
+section h1 {
+  color: var(--sol-yellow);
+}
+section h2 {
+  color: var(--sol-blue);
+}
+section h3 {
+  color: var(--sol-cyan);
+}
+section h4 {
+  color: var(--sol-green);
+}
+section h5 {
+  color: var(--sol-violet);
+}
+section h6 {
+  color: var(--sol-base1);
+}
+
+section a {
+  color: var(--sol-blue);
+}
+section a:hover {
+  color: var(--sol-cyan);
+}
+
+section strong,
+section em {
+  color: var(--sol-base1);
+}
+
+section code,
+section tt {
+  color: var(--sol-cyan);
+  background-color: var(--sol-base02);
+}
+
+section pre {
+  background-color: var(--sol-base02);
+}
+
+section pre code,
+section pre tt {
+  color: var(--sol-base0);
+  background-color: transparent;
+}
+
+section blockquote {
+  color: var(--sol-base01);
+  border-left-color: var(--sol-blue);
+}
+
+section mark {
+  background-color: #b5890033;
+  color: var(--sol-base1);
+}
+
+section table td,
+section table th {
+  border-color: var(--sol-base02);
+}
+
+section table tr:nth-child(2n) {
+  background-color: var(--sol-base02);
+}
+
+section hr {
+  background-color: var(--sol-base02);
+}
+
+section header,
+section footer,
+section::after {
+  color: var(--sol-base01);
+}
+
+section.invert {
+  color-scheme: light;
+
+  --bgColor-default: var(--sol-base3);
+  --fgColor-default: var(--sol-base00);
+  --fgColor-muted: var(--sol-base01);
+  --bgColor-muted: var(--sol-base2);
+  --bgColor-neutral-muted: #eee8d599;
+  --borderColor-default: #d9d2c0;
+  --borderColor-muted: #e3dccb;
+  --borderColor-neutral-muted: #d9d2c0;
+  --h1-color: var(--sol-orange);
+  --heading-strong-color: var(--sol-base01);
+  --header-footer-color: var(--sol-base01);
+  --paginate-color: var(--sol-base01);
+
+  background-color: var(--sol-base3);
+  color: var(--sol-base00);
+}
+
+section.invert h1 {
+  color: var(--sol-orange);
+}
+section.invert h2 {
+  color: var(--sol-blue);
+}
+section.invert h3 {
+  color: var(--sol-cyan);
+}
+section.invert h4 {
+  color: var(--sol-green);
+}
+section.invert h5 {
+  color: var(--sol-violet);
+}
+section.invert h6 {
+  color: var(--sol-base01);
+}
+section.invert a {
+  color: var(--sol-blue);
+}
+section.invert a:hover {
+  color: var(--sol-cyan);
+}
+section.invert strong,
+section.invert em {
+  color: var(--sol-base01);
+}
+section.invert code,
+section.invert tt {
+  color: var(--sol-cyan);
+  background-color: var(--sol-base2);
+}
+section.invert pre {
+  background-color: var(--sol-base2);
+}
+section.invert pre code,
+section.invert pre tt {
+  color: var(--sol-base00);
+  background-color: transparent;
+}
+section.invert blockquote {
+  color: var(--sol-base01);
+  border-left-color: var(--sol-blue);
+}
+section.invert table td,
+section.invert table th {
+  border-color: #d9d2c0;
+}
+section.invert table tr:nth-child(2n) {
+  background-color: var(--sol-base2);
+}
+section.invert hr {
+  background-color: #d9d2c0;
+}

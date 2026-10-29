@@ -70,13 +70,13 @@ const MarpSlides: QuartzEmitterPlugin<Partial<MarpSlideOptions>> = (userOpts) =>
         }
         const source = `---\n${directives.join("\n")}\n---\n\n${markdown}`
 
-        const { html, css } = marp.render(source)
+        const { html, css, comments } = marp.render(source)
         const title =
           typeof frontmatter?.title === "string" && frontmatter.title.length > 0
             ? frontmatter.title
             : slug
 
-        const page = renderDeck({ title, marpHtml: html, marpCss: css })
+        const page = renderDeck({ title, marpHtml: html, marpCss: css, notes: comments })
         const outPath = path.join(ctx.argv.output, opts.outputDir, `${slug}.html`)
         await fs.promises.mkdir(path.dirname(outPath), { recursive: true })
         await fs.promises.writeFile(outPath, page)

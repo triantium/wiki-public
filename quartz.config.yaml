@@ -188,8 +188,8 @@ plugins:
   - source: ./plugins/quartz-slide
     enabled: true
     options:
-      theme: gaia
-      class: invert
+      theme: solarized
+      themeCss: plugins/quartz-slide/themes/solarized.css
     layout:
       position: left
       priority: 37
