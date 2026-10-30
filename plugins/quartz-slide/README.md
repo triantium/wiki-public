@@ -88,6 +88,28 @@ Numbers are on the handout.
 -->
 ```
 
+## Images and Obsidian embeds
+
+Obsidian-style image embeds are resolved before Marp renders the deck:
+
+```markdown
+![[10-19 Feuerwehr/16 Praesentationen/assets/foerderstrom.png]]
+![[taktikschema.png|Tactical diagram]]
+![[taktikschema.png|600]]
+```
+
+The resolver tries an exact content-relative path first, then a path suffix,
+then the file name alone (case-insensitive), preferring the file closest to the
+note. The resulting URL points at the same asset path that Quartz emits, so the
+image does not need to be copied a second time.
+
+Aliases can supply alt text or a pixel/percent size. Sized images are emitted as
+`<img>` elements because Marp Core does not parse the `=300x200` syntax.
+
+If an embed cannot be matched to an existing file, the deck falls back to a
+note-relative URL and logs an `unresolved image embed` warning. Add the missing
+file under `content/` to resolve it.
+
 ## Options
 
 | Option           | Default        | Description                                                                  |

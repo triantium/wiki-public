@@ -10,6 +10,7 @@ import type {
 } from "@quartz-community/types"
 import type { MarpSlideOptions } from "../types"
 import { defaultOptions } from "../types"
+import { resolveEmbeddedImages } from "../util/embeds"
 import { isPresentation, stripFrontmatter } from "../util/slides"
 import { renderDeck } from "./deck"
 
@@ -53,8 +54,16 @@ const MarpSlides: QuartzEmitterPlugin<Partial<MarpSlideOptions>> = (userOpts) =>
         const slug = data.slug as string | undefined
         if (!slug) continue
 
-        const markdown = stripFrontmatter(String(vfile.value))
+        let markdown = stripFrontmatter(String(vfile.value))
         if (markdown.trim().length === 0) continue
+
+        const notePath = typeof data.relativePath === "string" ? data.relativePath : `${slug}.md`
+        markdown = resolveEmbeddedImages(markdown, {
+          notePath,
+          deckPath: path.posix.join(opts.outputDir, slug),
+          allFiles: ctx.allFiles,
+          warn: (message) => console.warn(`[quartz-slide] ${message}`),
+        })
 
         const perNoteTheme = frontmatter?.presentationTheme ?? frontmatter?.presentation_theme
         const requestedTheme = typeof perNoteTheme === "string" ? perNoteTheme : defaultTheme

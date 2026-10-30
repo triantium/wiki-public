@@ -1,6 +1,6 @@
 // plugins/quartz-slide/src/marp/emitter.ts
 import fs from "fs";
-import path from "path";
+import path2 from "path";
 import { Marp } from "@marp-team/marp-core";
 
 // plugins/quartz-slide/src/types.ts
@@ -12,6 +12,10 @@ var defaultOptions = {
   themeCss: "",
   class: ""
 };
+
+// plugins/quartz-slide/src/util/embeds.ts
+import path from "path";
+import { slugifyFilePath } from "@quartz-community/utils";
 
 // plugins/quartz-slide/src/util/slides.ts
 var asTags = (tags) => {
@@ -32,6 +36,266 @@ function isPresentation(frontmatter, opts = defaultOptions) {
 }
 function stripFrontmatter(markdown) {
   return markdown.replace(/^\uFEFF?---\r?\n[\s\S]*?\r?\n---\r?\n?/, "").replace(/^\s+/, "");
+}
+function stripSlashes(s, onlyStripPrefix = false) {
+  if (s.startsWith("/")) s = s.substring(1);
+  if (!onlyStripPrefix && s.endsWith("/")) s = s.slice(0, -1);
+  return s;
+}
+function endsWith(s, suffix) {
+  return s === suffix || s.endsWith("/" + suffix);
+}
+function trimSuffix(s, suffix) {
+  return endsWith(s, suffix) ? s.slice(0, -suffix.length) : s;
+}
+function simplifySlug(fp) {
+  const res = stripSlashes(trimSuffix(fp, "index"), true);
+  return res.length === 0 ? "/" : res;
+}
+function pathToRoot(slug) {
+  let rootPath = slug.split("/").filter((x) => x !== "").slice(0, -1).map(() => "..").join("/");
+  if (rootPath.length === 0) rootPath = ".";
+  return rootPath;
+}
+function joinSegments(...segments) {
+  if (segments.length === 0) return "";
+  let joined = segments.filter((segment) => segment !== "" && segment !== "/").map((segment) => stripSlashes(segment)).join("/");
+  if (segments[0]?.startsWith("/")) joined = "/" + joined;
+  if (segments[segments.length - 1]?.endsWith("/")) joined = joined + "/";
+  return joined;
+}
+function resolveRelative(current, target) {
+  return joinSegments(pathToRoot(current), simplifySlug(target));
+}
+
+// plugins/quartz-slide/src/util/embeds.ts
+var IMAGE_EXTENSIONS = /* @__PURE__ */ new Set([
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".gif",
+  ".webp",
+  ".avif",
+  ".svg",
+  ".bmp",
+  ".ico",
+  ".tif",
+  ".tiff"
+]);
+var SIZE_RE = /^(?:(\d+(?:\.\d+)?)(%?)(?:x(\d+(?:\.\d+)?)(%?))?|x(\d+(?:\.\d+)?)(%?))$/;
+var normalizePath = (filePath) => path.posix.normalize(filePath.replace(/\\/g, "/"));
+var safeDecode = (value) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+var isExternalTarget = (target) => /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith("//");
+var isImageTarget = (target) => IMAGE_EXTENSIONS.has(path.posix.extname(target).toLowerCase());
+var isEscaped = (text, index) => {
+  let backslashes = 0;
+  for (let i = index - 1; i >= 0 && text[i] === "\\"; i--) {
+    backslashes++;
+  }
+  return backslashes % 2 === 1;
+};
+var parseSize = (value) => {
+  const match = SIZE_RE.exec(value.trim());
+  if (!match) return void 0;
+  const [, width, widthUnit, height, heightUnit, onlyHeight, heightOnlyUnit] = match;
+  if (onlyHeight) {
+    return { height: `${onlyHeight}${heightOnlyUnit ?? ""}` };
+  }
+  const size = { width: `${width}${widthUnit ?? ""}` };
+  if (height) {
+    size.height = `${height}${heightUnit ?? ""}`;
+  }
+  return size;
+};
+var parseEmbed = (raw, fallbackAlt) => {
+  const [targetPart, ...aliasParts] = raw.split("|");
+  const target = targetPart.trim();
+  let size;
+  const altParts = [];
+  for (const part of aliasParts) {
+    const trimmed = part.trim();
+    const parsedSize = parseSize(trimmed);
+    if (parsedSize) {
+      size = parsedSize;
+    } else if (trimmed.length > 0) {
+      altParts.push(trimmed);
+    }
+  }
+  return {
+    target,
+    alt: altParts.join("|") || fallbackAlt,
+    size
+  };
+};
+var escapeMarkdownAlt = (value) => value.replace(/\\/g, "\\\\").replace(/\[/g, "\\[").replace(/\]/g, "\\]");
+var escapeHtmlAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+var encodeUrl = (value) => encodeURI(value).replace(/\(/g, "%28").replace(/\)/g, "%29");
+var commonPrefixLength = (a, b) => {
+  let length = 0;
+  while (length < a.length && length < b.length && a[length] === b[length]) {
+    length++;
+  }
+  return length;
+};
+var chooseClosest = (candidates, noteDir, target) => {
+  if (candidates.length === 0) return void 0;
+  const noteDirSegments = noteDir.toLowerCase().split("/").filter(Boolean);
+  const targetSegments = target.toLowerCase().split("/").filter(Boolean);
+  return [...candidates].sort((a, b) => {
+    const aLower = a.toLowerCase();
+    const bLower = b.toLowerCase();
+    const aSegments = aLower.split("/").filter(Boolean);
+    const bSegments = bLower.split("/").filter(Boolean);
+    const aTargetSuffix = aSegments.slice(-targetSegments.length).join("/") === targetSegments.join("/");
+    const bTargetSuffix = bSegments.slice(-targetSegments.length).join("/") === targetSegments.join("/");
+    if (aTargetSuffix !== bTargetSuffix) return aTargetSuffix ? -1 : 1;
+    const aPrefix = commonPrefixLength(
+      noteDirSegments,
+      aSegments.slice(0, Math.max(1, aSegments.length - 1))
+    );
+    const bPrefix = commonPrefixLength(
+      noteDirSegments,
+      bSegments.slice(0, Math.max(1, bSegments.length - 1))
+    );
+    if (aPrefix !== bPrefix) return bPrefix - aPrefix;
+    if (aSegments.length !== bSegments.length) return aSegments.length - bSegments.length;
+    if (a !== b) return a < b ? -1 : 1;
+    return 0;
+  })[0];
+};
+var findAsset = (target, allFiles, noteDir) => {
+  const cleanTarget = normalizePath(safeDecode(target).replace(/^\/+/, ""));
+  const lowerTarget = cleanTarget.toLowerCase();
+  const baseName = path.posix.basename(lowerTarget);
+  const files = allFiles.map((filePath) => normalizePath(filePath)).filter((filePath) => isImageTarget(filePath));
+  const exact = files.filter((filePath) => filePath.toLowerCase() === lowerTarget);
+  if (exact.length > 0) {
+    return { filePath: chooseClosest(exact, noteDir, cleanTarget) ?? exact[0], resolved: true };
+  }
+  const suffix = files.filter((filePath) => filePath.toLowerCase().endsWith(`/${lowerTarget}`));
+  if (suffix.length > 0) {
+    return { filePath: chooseClosest(suffix, noteDir, cleanTarget) ?? suffix[0], resolved: true };
+  }
+  const byName = files.filter(
+    (filePath) => path.posix.basename(filePath).toLowerCase() === baseName
+  );
+  if (byName.length > 0) {
+    return { filePath: chooseClosest(byName, noteDir, cleanTarget) ?? byName[0], resolved: true };
+  }
+  const absolute = /^[\\/]/.test(target);
+  return {
+    filePath: absolute ? cleanTarget : normalizePath(path.posix.join(noteDir, cleanTarget)),
+    resolved: false
+  };
+};
+var formatImage = (src, alt, size) => {
+  const url = encodeUrl(src);
+  if (!size) {
+    return `![${escapeMarkdownAlt(alt)}](${url})`;
+  }
+  const attributes = [`src="${escapeHtmlAttribute(url)}"`, `alt="${escapeHtmlAttribute(alt)}"`];
+  if (size.width) attributes.push(`width="${escapeHtmlAttribute(size.width)}"`);
+  if (size.height) attributes.push(`height="${escapeHtmlAttribute(size.height)}"`);
+  return `<img ${attributes.join(" ")}>`;
+};
+var resolveEmbed = (raw, options, noteDir) => {
+  const fallbackAlt = path.posix.basename(raw.split("|")[0]).replace(/\.[^.]+$/, "");
+  const embed = parseEmbed(raw, fallbackAlt);
+  if (embed.target.length === 0 || isExternalTarget(embed.target)) return void 0;
+  if (!isImageTarget(embed.target)) return void 0;
+  const { filePath, resolved } = findAsset(embed.target, options.allFiles, noteDir);
+  if (!resolved) {
+    options.warn?.(`unresolved image embed "${embed.target}" in "${options.notePath}"`);
+  }
+  const src = resolveRelative(options.deckPath, slugifyFilePath(filePath));
+  return formatImage(src, embed.alt, embed.size);
+};
+var FENCE_RE = /^ {0,3}(`{3,}|~{3,})(.*)$/;
+var CLOSING_FENCE_RE = /^ {0,3}(`{3,}|~{3,})\s*$/;
+var isClosingFence = (line, marker) => {
+  const match = CLOSING_FENCE_RE.exec(line);
+  return !!match && match[1][0] === marker[0] && match[1].length >= marker.length;
+};
+var transformLine = (line, inComment, resolve) => {
+  let output = "";
+  let index = 0;
+  while (index < line.length) {
+    if (inComment.value) {
+      const end = line.indexOf("-->", index);
+      if (end === -1) {
+        output += line.slice(index);
+        return output;
+      }
+      output += line.slice(index, end + 3);
+      inComment.value = false;
+      index = end + 3;
+      continue;
+    }
+    if (line.startsWith("<!--", index)) {
+      const end = line.indexOf("-->", index + 4);
+      if (end === -1) {
+        output += line.slice(index);
+        inComment.value = true;
+        return output;
+      }
+      output += line.slice(index, end + 3);
+      index = end + 3;
+      continue;
+    }
+    if (line[index] === "`") {
+      const marker = /^`+/.exec(line.slice(index))?.[0];
+      if (marker) {
+        const end = line.indexOf(marker, index + marker.length);
+        if (end === -1) {
+          output += line.slice(index);
+          return output;
+        }
+        output += line.slice(index, end + marker.length);
+        index = end + marker.length;
+        continue;
+      }
+    }
+    if (line.startsWith("![[", index) && !isEscaped(line, index)) {
+      const end = line.indexOf("]]", index + 3);
+      if (end === -1) {
+        output += line.slice(index);
+        return output;
+      }
+      const raw = line.slice(index + 3, end);
+      output += resolve(raw) ?? line.slice(index, end + 2);
+      index = end + 2;
+      continue;
+    }
+    output += line[index];
+    index++;
+  }
+  return output;
+};
+function resolveEmbeddedImages(markdown, options) {
+  const noteDir = path.posix.dirname(options.notePath);
+  const newline = markdown.includes("\r\n") ? "\r\n" : "\n";
+  const lines = markdown.split(/\r?\n/);
+  const inComment = { value: false };
+  let fence;
+  const resolve = (raw) => resolveEmbed(raw, options, noteDir);
+  return lines.map((line) => {
+    if (fence) {
+      if (isClosingFence(line, fence)) fence = void 0;
+      return line;
+    }
+    const openingFence = FENCE_RE.exec(line);
+    if (openingFence) {
+      fence = openingFence[1];
+      return line;
+    }
+    return transformLine(line, inComment, resolve);
+  }).join(newline);
 }
 
 // plugins/quartz-slide/src/marp/deck.ts
@@ -657,7 +921,7 @@ var MarpSlides = (userOpts) => {
       const written = [];
       let defaultTheme = opts.theme || "default";
       if (opts.themeCss) {
-        const cssPath = path.resolve(process.cwd(), opts.themeCss);
+        const cssPath = path2.resolve(process.cwd(), opts.themeCss);
         const themeCss = await fs.promises.readFile(cssPath, "utf8");
         marp.themeSet.add(themeCss);
         const themeName = themeCss.match(/@theme\s+([\w-]+)/)?.[1];
@@ -677,8 +941,15 @@ var MarpSlides = (userOpts) => {
         if (!isPresentation(frontmatter, opts)) continue;
         const slug = data.slug;
         if (!slug) continue;
-        const markdown = stripFrontmatter(String(vfile.value));
+        let markdown = stripFrontmatter(String(vfile.value));
         if (markdown.trim().length === 0) continue;
+        const notePath = typeof data.relativePath === "string" ? data.relativePath : `${slug}.md`;
+        markdown = resolveEmbeddedImages(markdown, {
+          notePath,
+          deckPath: path2.posix.join(opts.outputDir, slug),
+          allFiles: ctx.allFiles,
+          warn: (message) => console.warn(`[quartz-slide] ${message}`)
+        });
         const perNoteTheme = frontmatter?.presentationTheme ?? frontmatter?.presentation_theme;
         const requestedTheme = typeof perNoteTheme === "string" ? perNoteTheme : defaultTheme;
         const theme = marp.themeSet.has(requestedTheme) ? requestedTheme : defaultTheme;
@@ -696,8 +967,8 @@ ${markdown}`;
         const { html, css, comments } = marp.render(source);
         const title = typeof frontmatter?.title === "string" && frontmatter.title.length > 0 ? frontmatter.title : slug;
         const page = renderDeck({ title, marpHtml: html, marpCss: css, notes: comments });
-        const outPath = path.join(ctx.argv.output, opts.outputDir, `${slug}.html`);
-        await fs.promises.mkdir(path.dirname(outPath), { recursive: true });
+        const outPath = path2.join(ctx.argv.output, opts.outputDir, `${slug}.html`);
+        await fs.promises.mkdir(path2.dirname(outPath), { recursive: true });
         await fs.promises.writeFile(outPath, page);
         written.push(outPath);
       }
